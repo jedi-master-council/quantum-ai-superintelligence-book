@@ -87,7 +87,38 @@ def fig_4_4():
         y -= 1.14
     save(fig, OUT, "Fig_4_4_advantage_claims")
 
+E4 = json.load(open("data/lab4_extensions_results.json"))
+
+def fig_4_5():
+    S = E4["shor15"]; k = list(range(16))
+    di = [S["ideal_distribution"].get(str(i), 0) for i in k]; dn = [S["fez_distribution"].get(str(i), 0) for i in k]
+    fig = plt.figure(figsize=(W, 3.5)); ax = fig.add_axes([0.14, 0.15, 0.84, 0.66])
+    x = np.arange(16); w = 0.4
+    ax.bar(x - w / 2, di, w, color=f("today"), ec=c("today"), lw=0.9, label="ideal simulator")
+    ax.bar(x + w / 2, dn, w, color=c("quantum"), ec=c("quantum"), lw=0.9, label="IBM Fez noise model")
+    ax.axhline(1 / 16, color=GREY, lw=0.8, ls=(0, (4, 3))); ax.text(10.0, 1 / 16 + 0.006, "random guessing", ha="center", va="bottom", color=GREY, fontsize=9.5)
+    ax.set_xticks(x); ax.set_xticklabels([str(i) for i in x]); ax.set_xlabel("Measured value of the counting register (phase × 16)")
+    ax.set_ylabel("Probability"); ax.set_ylim(0, 0.3)
+    ax.yaxis.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True)
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=2, frameon=False)
+    save(fig, OUT, "Fig_4_5_shor15")
+
+def fig_4_6():
+    I = E4["ising"]; t = I["times"]
+    fig = plt.figure(figsize=(W, 3.9)); ax = fig.add_axes([0.15, 0.13, 0.82, 0.60])
+    tt = np.array(t)
+    ax.plot(t, I["exact"], "-", color=GREY, lw=1.8, label="exact evolution")
+    ax.plot(t, I["trotter_ideal"], "o", color=c("quantum"), ms=5, mfc="white", label="Trotter circuit, ideal")
+    ax.plot(t, I["trotter_fez"], "s", color=c("quantum"), ms=4, label="Trotter circuit, IBM Fez noise")
+    ax.axhline(0, color=GREY, lw=0.6)
+    ax.set_xlabel("Time (units of 1/J)"); ax.set_ylabel(r"Average magnetisation $\langle Z \rangle$"); ax.set_ylim(-0.15, 1.05)
+    ax.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True)
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=1, frameon=False)
+    save(fig, OUT, "Fig_4_6_ising_dynamics")
+
 if __name__ == "__main__":
-    for fn in (fig_4_1, fig_4_2, fig_4_3, fig_4_4):
+    for fn in (fig_4_1, fig_4_2, fig_4_3, fig_4_4, fig_4_5, fig_4_6):
         fn()
     print("done")
