@@ -1,0 +1,7 @@
+# Versions with which every lab and figure script was last tested (26 November 2026)
+qiskit==2.6.2
+qiskit-aer==0.18.4
+qiskit-ibm-runtime==0.52.1
+numpy
+matplotlib
+pillow

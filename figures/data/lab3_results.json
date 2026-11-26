@@ -1,0 +1,89 @@
+{
+ "shots": 4000,
+ "noise_model_source": "fake_fez",
+ "bell_ideal": {
+  "11": 2002,
+  "00": 1998
+ },
+ "bell_noisy": {
+  "01": 51,
+  "10": 80,
+  "00": 1936,
+  "11": 1933
+ },
+ "bell_transpiled_ops": {
+  "rz": 6,
+  "sx": 3,
+  "measure": 2,
+  "cz": 1
+ },
+ "bell_transpiled_depth": 8,
+ "ghz": [
+  {
+   "n": 2,
+   "p_correct": 0.96725,
+   "two_qubit_gates": 1,
+   "depth": 8
+  },
+  {
+   "n": 3,
+   "p_correct": 0.95975,
+   "two_qubit_gates": 2,
+   "depth": 12
+  },
+  {
+   "n": 4,
+   "p_correct": 0.94475,
+   "two_qubit_gates": 3,
+   "depth": 16
+  },
+  {
+   "n": 5,
+   "p_correct": 0.9355,
+   "two_qubit_gates": 4,
+   "depth": 20
+  },
+  {
+   "n": 6,
+   "p_correct": 0.921,
+   "two_qubit_gates": 5,
+   "depth": 24
+  },
+  {
+   "n": 7,
+   "p_correct": 0.8955,
+   "two_qubit_gates": 6,
+   "depth": 28
+  },
+  {
+   "n": 8,
+   "p_correct": 0.877,
+   "two_qubit_gates": 7,
+   "depth": 32
+  },
+  {
+   "n": 9,
+   "p_correct": 0.8745,
+   "two_qubit_gates": 8,
+   "depth": 36
+  },
+  {
+   "n": 10,
+   "p_correct": 0.858,
+   "two_qubit_gates": 9,
+   "depth": 40
+  },
+  {
+   "n": 11,
+   "p_correct": 0.85275,
+   "two_qubit_gates": 10,
+   "depth": 44
+  },
+  {
+   "n": 12,
+   "p_correct": 0.851,
+   "two_qubit_gates": 11,
+   "depth": 48
+  }
+ ]
+}

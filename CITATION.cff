@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the book."
+title: "Quantum AI and the Road to Superintelligence: companion code"
+authors:
+  - family-names: Radanliev
+    given-names: Petar
+repository-code: "https://github.com/jedi-master-council/quantum-ai-superintelligence-book"
+license: MIT
+preferred-citation:
+  type: book
+  title: "Quantum AI and the Road to Superintelligence: AGI, the Quantum Brain and the Technological Singularity, with Hands-On Labs on Free Quantum Computers"
+  authors:
+    - family-names: Radanliev
+      given-names: Petar
+  publisher:
+    name: Springer
+  year: 2027

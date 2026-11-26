@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+figures/out/
+labs/**/lab*_results.json
+.ipynb_checkpoints/
