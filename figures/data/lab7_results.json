@@ -1,0 +1,148 @@
+{
+ "lab7_1": {
+  "random_test": {
+   "raw": 0.04670518179224804,
+   "readout": 0.029824325187709725,
+   "ml": 0.0349652120878498
+  },
+  "ghz": {
+   "raw": 0.055249999999999896,
+   "readout": 0.015982173067712286,
+   "ml": 0.015818660918865947
+  },
+  "calibration_circuits": 16,
+  "training_circuits": 400,
+  "test_circuits": 100,
+  "ghz_example": {
+   "ideal": [
+    0.4999999999999999,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.4999999999999999
+   ],
+   "raw": [
+    0.47175,
+    0.01,
+    0.00675,
+    0.0025,
+    0.00175,
+    0.0,
+    0.0005,
+    0.006,
+    0.00825,
+    0.00025,
+    0.0,
+    0.00225,
+    0.0015,
+    0.00675,
+    0.00875,
+    0.473
+   ],
+   "readout": [
+    0.49107415431450363,
+    0.00463351605209436,
+    0.0005787967591229329,
+    0.0025449948078508523,
+    0.0,
+    0.0,
+    0.00036319584781467634,
+    0.0,
+    0.0016669926065012248,
+    2.517170897959123e-05,
+    0.0,
+    0.00025233984829797936,
+    0.0013815531765576058,
+    0.001232050424764406,
+    0.003303561835728728,
+    0.49294367261778393
+   ],
+   "ml": [
+    0.4979130746712883,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0007402883861672699,
+    0.0,
+    0.010039462627794779,
+    0.0,
+    0.0,
+    0.005038909904903986,
+    0.4862682644098456
+   ]
+  }
+ },
+ "lab7_2_sweep": [
+  {
+   "p": 0.02,
+   "q": 0.0,
+   "distance": 5,
+   "minimum_weight_logical_error": 9e-05,
+   "learned_logical_error": 9e-05,
+   "physical_flip_rate_per_bit": 0.020281,
+   "train_samples": 200000,
+   "test_samples": 200000,
+   "syndromes_where_decoders_differ": 0
+  },
+  {
+   "p": 0.02,
+   "q": 0.02,
+   "distance": 5,
+   "minimum_weight_logical_error": 0.00587,
+   "learned_logical_error": 0.005485,
+   "physical_flip_rate_per_bit": 0.049931,
+   "train_samples": 200000,
+   "test_samples": 200000,
+   "syndromes_where_decoders_differ": 2
+  },
+  {
+   "p": 0.02,
+   "q": 0.04,
+   "distance": 5,
+   "minimum_weight_logical_error": 0.012985,
+   "learned_logical_error": 0.011455,
+   "physical_flip_rate_per_bit": 0.080043,
+   "train_samples": 200000,
+   "test_samples": 200000,
+   "syndromes_where_decoders_differ": 3
+  },
+  {
+   "p": 0.02,
+   "q": 0.06,
+   "distance": 5,
+   "minimum_weight_logical_error": 0.02183,
+   "learned_logical_error": 0.019045,
+   "physical_flip_rate_per_bit": 0.107709,
+   "train_samples": 200000,
+   "test_samples": 200000,
+   "syndromes_where_decoders_differ": 3
+  },
+  {
+   "p": 0.02,
+   "q": 0.08,
+   "distance": 5,
+   "minimum_weight_logical_error": 0.032495,
+   "learned_logical_error": 0.029125,
+   "physical_flip_rate_per_bit": 0.135452,
+   "train_samples": 200000,
+   "test_samples": 200000,
+   "syndromes_where_decoders_differ": 3
+  }
+ ]
+}

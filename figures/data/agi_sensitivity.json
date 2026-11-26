@@ -1,0 +1,42 @@
+{
+ "Compute: 2 orders of magnitude needed": {
+  "p10": 2025.1,
+  "median": 2028.1,
+  "p90": 2032.0,
+  "p_by_2030": 0.77,
+  "p_by_2040": 0.994,
+  "p_by_2050": 1.0
+ },
+ "Compute: 4 orders of magnitude (default)": {
+  "p10": 2028.2,
+  "median": 2031.8,
+  "p90": 2039.5,
+  "p_by_2030": 0.287,
+  "p_by_2040": 0.912,
+  "p_by_2050": 0.998
+ },
+ "Compute: 6 orders of magnitude needed": {
+  "p10": 2031.7,
+  "median": 2038.7,
+  "p90": 2047.5,
+  "p_by_2030": 0.031,
+  "p_by_2040": 0.576,
+  "p_by_2050": 0.95
+ },
+ "Horizon: doubling 4 to 12 months (default)": {
+  "p10": 2027.9,
+  "median": 2029.9,
+  "p90": 2032.7,
+  "p_by_2030": 0.524,
+  "p_by_2040": 1.0,
+  "p_by_2050": 1.0
+ },
+ "Horizon: doubling 10 to 20 months": {
+  "p10": 2031.0,
+  "median": 2034.0,
+  "p90": 2038.3,
+  "p_by_2030": 0.027,
+  "p_by_2040": 0.971,
+  "p_by_2050": 1.0
+ }
+}

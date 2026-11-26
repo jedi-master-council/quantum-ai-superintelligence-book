@@ -8,11 +8,20 @@ The repository holds the code for the labs, the scripts that draw every original
 
 | Folder | What it holds |
 |---|---|
+| `labs/chapter-02/` | Lab 2.1: a personal AGI forecast combining a survey fit, a compute-threshold model and a task-horizon model |
 | `labs/chapter-03/` | Lab 3.1 (an entangled pair, ideal and noisy) and Lab 3.2 (how noise grows with the circuit) |
+| `labs/chapter-04/` | Grover's search on 2 to 5 qubits, ideal and under the IBM Fez and Sherbrooke noise models |
+| `labs/chapter-05/` | A small quantum neural network and a quantum kernel against classical baselines |
+| `labs/chapter-06/` | Barren plateaus: gradient variance against qubit number and circuit depth |
+| `labs/chapter-07/` | AI for quantum computing: learned error correction of results and a learned decoder |
+| `labs/chapter-08/` | The build roadmap: milestone dates with and without quantum relief |
+| `labs/chapter-09/` | Dating a singularity-type transition (imports the Chapter 2 forecast) |
+| `labs/chapter-10/` | A spiking network in NumPy, a quantum neuron under noise, and a brain-emulation timeline |
+| `labs/chapter-11/` | Protecting a model file with hybrid post-quantum cryptography, and Mosca's inequality for AI assets |
 | `figures/` | Scripts that draw the book's original figures at printed size, and the shared style with the book's colour key |
 | `figures/data/` | Data used by the figures, produced by the labs |
 
-Further chapters are added as they are completed.
+Each lab writes its results to a JSON file beside the script; copying that file into `figures/data/` and rerunning the figure script redraws the printed figure from the reader's own run.
 
 ## Getting started
 
@@ -30,7 +39,9 @@ The labs run on a laptop simulator at no cost. Running them on real quantum hard
 ```bash
 cd figures
 python figs_ch1.py out
+python figs_ch2.py out ../labs/chapter-02/agi_forecast.py
 python figs_ch3_12.py out
+for n in 4 5 6 7 8 9 10 11; do python figs_ch$n.py out; done
 ```
 
 Each figure is written as PDF, SVG, PNG and TIFF. The figures use the Liberation Serif typeface at 11 pt, which has the same letter widths as the Times New Roman used in the book's text; install it (it is free) to reproduce the figures exactly.

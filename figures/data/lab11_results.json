@@ -1,0 +1,270 @@
+{
+ "lab11_1": {
+  "keygen_ms": {
+   "X25519": 0.047630490000756254,
+   "ML-KEM-768": 0.0975498200000402,
+   "Ed25519": 0.03366873499999201,
+   "ML-DSA-65": 0.186778314998719,
+   "RSA-3072": 236.6615874999752
+  },
+  "ops_ms": {
+   "hybrid KEM: encapsulate": 0.10424762999946324,
+   "hybrid KEM: decapsulate": 0.07673562500031039,
+   "X25519 only: exchange": 0.06902807499955088,
+   "ML-KEM-768 only: encapsulate": 0.02241168500177082,
+   "ML-KEM-768 only: decapsulate": 0.03411493500152574,
+   "RSA-3072 OAEP: encrypt key": 0.048050990001229366,
+   "RSA-3072 OAEP: decrypt key": 1.051696135000384,
+   "Ed25519: sign": 0.04045055000005959,
+   "Ed25519: verify": 0.11940412500052844,
+   "ML-DSA-65: sign": 1.011763594999593,
+   "ML-DSA-65: verify": 0.19992206500091925,
+   "RSA-3072 PSS: sign": 1.0867351100000633,
+   "RSA-3072 PSS: verify": 0.05097458499903951
+  },
+  "sizes_bytes": {
+   "X25519": {
+    "public_key": 32,
+    "ciphertext": 32,
+    "signature": null
+   },
+   "ML-KEM-768": {
+    "public_key": 1184,
+    "ciphertext": 1088,
+    "signature": null
+   },
+   "RSA-3072 (OAEP)": {
+    "public_key": 422,
+    "ciphertext": 384,
+    "signature": null
+   },
+   "Ed25519": {
+    "public_key": 32,
+    "ciphertext": null,
+    "signature": 64
+   },
+   "ML-DSA-65": {
+    "public_key": 1952,
+    "ciphertext": null,
+    "signature": 3309
+   },
+   "RSA-3072 (PSS)": {
+    "public_key": 422,
+    "ciphertext": null,
+    "signature": 384
+   }
+  },
+  "files": [
+   {
+    "MiB": 1,
+    "protect_ms": 2.2101095999914833,
+    "open_ms": 1.6902815500088764,
+    "overhead_bytes": 4722
+   },
+   {
+    "MiB": 10,
+    "protect_ms": 11.368015700008982,
+    "open_ms": 10.244696149993615,
+    "overhead_bytes": 4724
+   },
+   {
+    "MiB": 100,
+    "protect_ms": 146.30008439999074,
+    "open_ms": 149.61476320004294,
+    "overhead_bytes": 4726
+   }
+  ],
+  "tamper": {
+   "one bit of the encrypted weights flipped": "detected: InvalidTag",
+   "file name in the manifest changed": "detected: InvalidSignature",
+   "post-quantum signature replaced": "detected: InvalidSignature",
+   "ML-KEM ciphertext altered": "detected: InvalidTag"
+  }
+ },
+ "lab11_2_curve": {
+  "shelf_life_years": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30
+  ],
+  "p_exposed": {
+   "2026": [
+    0.0,
+    0.00952,
+    0.038915,
+    0.086745,
+    0.15456,
+    0.230955,
+    0.307885,
+    0.38558,
+    0.46218,
+    0.53903,
+    0.61567,
+    0.69282,
+    0.769235,
+    0.846495,
+    0.91412,
+    0.961925,
+    0.99052,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "2030": [
+    0.15488,
+    0.23056,
+    0.306605,
+    0.383385,
+    0.460675,
+    0.538405,
+    0.61529,
+    0.692715,
+    0.770105,
+    0.846285,
+    0.91393,
+    0.96135,
+    0.99057,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "2035": [
+    0.53815,
+    0.615375,
+    0.69293,
+    0.770265,
+    0.84782,
+    0.914165,
+    0.96178,
+    0.990475,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "lab11_2": {
+  "assumptions": {
+   "crqc_year": [
+    2032,
+    2045
+   ],
+   "migration_years": [
+    2,
+    6
+   ],
+   "shelf_life": {
+    "model weights (frontier)": [
+     2,
+     5
+    ],
+    "training data with personal information": [
+     10,
+     25
+    ],
+    "quantum circuits and calibration data": [
+     1,
+     3
+    ],
+    "safety evaluations and red-team findings": [
+     3,
+     10
+    ]
+   }
+  },
+  "p_exposed": {
+   "2026": {
+    "model weights (frontier)": 0.124445,
+    "training data with personal information": 0.93254,
+    "quantum circuits and calibration data": 0.04202,
+    "safety evaluations and red-team findings": 0.34725
+   },
+   "2030": {
+    "model weights (frontier)": 0.42293,
+    "training data with personal information": 0.99443,
+    "quantum circuits and calibration data": 0.307115,
+    "safety evaluations and red-team findings": 0.652105
+   },
+   "2035": {
+    "model weights (frontier)": 0.80729,
+    "training data with personal information": 1.0,
+    "quantum circuits and calibration data": 0.692445,
+    "safety evaluations and red-team findings": 0.94333
+   }
+  }
+ }
+}

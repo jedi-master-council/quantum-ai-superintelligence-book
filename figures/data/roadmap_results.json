@@ -1,0 +1,100 @@
+{
+ "classical": {
+  "M1 Agents complete week-long tasks": {
+   "p10": 2026.9,
+   "median": 2028.5,
+   "p90": 2031.3,
+   "constraint": "reliability of algorithms",
+   "quantum_relievable": false
+  },
+  "M2 AI carries out most AI research": {
+   "p10": 2029.3,
+   "median": 2031.9,
+   "p90": 2036.4,
+   "constraint": "compute for experiments",
+   "quantum_relievable": false
+  },
+  "M3 AGI: every task, better and cheaper": {
+   "p10": 2032.4,
+   "median": 2036.7,
+   "p90": 2044.1,
+   "constraint": "energy, materials and robotics",
+   "quantum_relievable": true
+  },
+  "M4 ASI: far beyond the best humans": {
+   "p10": 2036.2,
+   "median": 2042.9,
+   "p90": 2055.4,
+   "constraint": "energy and algorithmic insight",
+   "quantum_relievable": true
+  }
+ },
+ "quantum": {
+  "M1 Agents complete week-long tasks": {
+   "p10": 2026.9,
+   "median": 2028.5,
+   "p90": 2031.3,
+   "constraint": "reliability of algorithms",
+   "quantum_relievable": false
+  },
+  "M2 AI carries out most AI research": {
+   "p10": 2029.3,
+   "median": 2031.9,
+   "p90": 2036.5,
+   "constraint": "compute for experiments",
+   "quantum_relievable": false
+  },
+  "M3 AGI: every task, better and cheaper": {
+   "p10": 2032.4,
+   "median": 2036.6,
+   "p90": 2043.7,
+   "constraint": "energy, materials and robotics",
+   "quantum_relievable": true
+  },
+  "M4 ASI: far beyond the best humans": {
+   "p10": 2036.2,
+   "median": 2042.4,
+   "p90": 2053.9,
+   "constraint": "energy and algorithmic insight",
+   "quantum_relievable": true
+  }
+ },
+ "assumptions": {
+  "start": 2025.0,
+  "milestones": [
+   [
+    "M1 Agents complete week-long tasks",
+    3.5,
+    1.8,
+    "reliability of algorithms",
+    false
+   ],
+   [
+    "M2 AI carries out most AI research",
+    3.0,
+    2.2,
+    "compute for experiments",
+    false
+   ],
+   [
+    "M3 AGI: every task, better and cheaper",
+    4.0,
+    2.5,
+    "energy, materials and robotics",
+    true
+   ],
+   [
+    "M4 ASI: far beyond the best humans",
+    5.0,
+    3.0,
+    "energy and algorithmic insight",
+    true
+   ]
+  ],
+  "ftqc_year": [
+   2032.0,
+   2042.0
+  ],
+  "quantum_speedup": 0.15
+ }
+}

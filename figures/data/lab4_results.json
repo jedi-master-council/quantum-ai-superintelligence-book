@@ -1,0 +1,112 @@
+{
+ "shots": 4000,
+ "sweep_3q": [
+  {
+   "iterations": 0,
+   "theory": 0.12499999999999997,
+   "ideal": 0.13225,
+   "fez": 0.134,
+   "fez_2q": 0
+  },
+  {
+   "iterations": 1,
+   "theory": 0.7812499999999999,
+   "ideal": 0.781,
+   "fez": 0.72325,
+   "fez_2q": 17
+  },
+  {
+   "iterations": 2,
+   "theory": 0.9453125000000001,
+   "ideal": 0.9465,
+   "fez": 0.82675,
+   "fez_2q": 37
+  },
+  {
+   "iterations": 3,
+   "theory": 0.330078125,
+   "ideal": 0.333,
+   "fez": 0.29625,
+   "fez_2q": 59
+  },
+  {
+   "iterations": 4,
+   "theory": 0.012207031249999894,
+   "ideal": 0.01375,
+   "fez": 0.0555,
+   "fez_2q": 79
+  },
+  {
+   "iterations": 5,
+   "theory": 0.5479736328125,
+   "ideal": 0.544,
+   "fez": 0.41975,
+   "fez_2q": 99
+  },
+  {
+   "iterations": 6,
+   "theory": 0.9997863769531249,
+   "ideal": 1.0,
+   "fez": 0.69175,
+   "fez_2q": 117
+  }
+ ],
+ "scaling": [
+  {
+   "n": 2,
+   "N": 4,
+   "iterations": 1,
+   "random_guess": 0.25,
+   "theory": 1.0,
+   "ideal": 1.0,
+   "fez": 0.9855,
+   "fez_2q": 2,
+   "fez_depth": 9,
+   "sherbrooke": 0.972,
+   "sherbrooke_2q": 2,
+   "sherbrooke_depth": 18
+  },
+  {
+   "n": 3,
+   "N": 8,
+   "iterations": 2,
+   "random_guess": 0.125,
+   "theory": 0.9453125000000001,
+   "ideal": 0.9465,
+   "fez": 0.82675,
+   "fez_2q": 37,
+   "fez_depth": 135,
+   "sherbrooke": 0.741,
+   "sherbrooke_2q": 37,
+   "sherbrooke_depth": 178
+  },
+  {
+   "n": 4,
+   "N": 16,
+   "iterations": 3,
+   "random_guess": 0.0625,
+   "theory": 0.9613189697265625,
+   "ideal": 0.96,
+   "fez": 0.6485,
+   "fez_2q": 113,
+   "fez_depth": 458,
+   "sherbrooke": 0.5195,
+   "sherbrooke_2q": 111,
+   "sherbrooke_depth": 600
+  },
+  {
+   "n": 5,
+   "N": 32,
+   "iterations": 4,
+   "random_guess": 0.03125,
+   "theory": 0.9991823155432941,
+   "ideal": 0.9995,
+   "fez": 0.17475,
+   "fez_2q": 517,
+   "fez_depth": 1450,
+   "sherbrooke": 0.0565,
+   "sherbrooke_2q": 517,
+   "sherbrooke_depth": 2194
+  }
+ ]
+}

@@ -180,9 +180,9 @@ def fig_1_2():
 def fig_1_3():
     rows = [("Vinge (1993)", "superhuman intelligence\nwithin thirty years", None, 2023, "asi"),
             ("Kurzweil (2005, 2024)", "human-level AI", None, 2029, "agi"),
-            ("Grace et al. (2024)", "machines beat humans\nat every task", 2027, 2047, "agi"),
+            ("Grace et al. (2025)", "machines beat humans\nat every task", 2027, 2047, "agi"),
             ("Kurzweil (2005, 2024)", "singularity", None, 2045, "sing"),
-            ("Grace et al. (2024)", "all occupations\nautomatable", 2037, 2116, "agi")]
+            ("Grace et al. (2025)", "all occupations\nautomatable", 2037, 2116, "agi")]
     fig = plt.figure(figsize=(W, 4.6))
     ax = fig.add_axes([0.385, 0.25, 0.585, 0.74])
     n = len(rows)

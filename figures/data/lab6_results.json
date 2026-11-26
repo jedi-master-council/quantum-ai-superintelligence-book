@@ -1,0 +1,51 @@
+{
+ "samples": 300,
+ "rows": [
+  {
+   "n": 2,
+   "deep_global": 0.032141885480857724,
+   "deep_local": 0.023449536775206746,
+   "shallow_global": 0.028312740532806385,
+   "shallow_local": 0.023072945269935266
+  },
+  {
+   "n": 4,
+   "deep_global": 0.0017624375485444635,
+   "deep_local": 0.0030615524622257997,
+   "shallow_global": 0.0031048191066991946,
+   "shallow_local": 0.005110335263185421
+  },
+  {
+   "n": 6,
+   "deep_global": 0.00019291699385323678,
+   "deep_local": 0.0012662323847454915,
+   "shallow_global": 0.00018036134421061523,
+   "shallow_local": 0.002266110790598316
+  },
+  {
+   "n": 8,
+   "deep_global": 9.814581486066557e-06,
+   "deep_local": 0.0004897987544001658,
+   "shallow_global": 3.316127555672154e-05,
+   "shallow_local": 0.0013838721197341267
+  },
+  {
+   "n": 10,
+   "deep_global": 8.102063937578486e-07,
+   "deep_local": 0.00024111235715232207,
+   "shallow_global": 1.5649873436787448e-06,
+   "shallow_local": 0.000881052235178351
+  },
+  {
+   "n": 12,
+   "deep_global": 4.9915309552800274e-08,
+   "deep_local": 0.00012628218534773339,
+   "shallow_global": 3.8910453125702165e-07,
+   "shallow_local": 0.000548420956666796
+  }
+ ],
+ "deep_global_log2_slope_per_qubit": -1.914865694323501,
+ "deep_local_log2_slope_per_qubit": -0.7150508760067165,
+ "shallow_global_log2_slope_per_qubit": -1.6580059538532703,
+ "shallow_local_log2_slope_per_qubit": -0.5041962361737413
+}
