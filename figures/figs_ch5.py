@@ -87,7 +87,44 @@ def fig_5_4():
     ax.set_xlabel("Test accuracy on 200 points")
     save(fig, OUT, "Fig_5_4_model_comparison")
 
+E = json.load(open("data/lab5_extensions_results.json"))
+
+def fig_5_5():
+    Fq = E["fourier"]; fr = Fq["freqs"]; M = np.array(Fq["magnitude"])
+    keep = [i for i, v in enumerate(fr) if abs(v) <= 6]
+    M = M[np.ix_(keep, keep)]; fk = [fr[i] for i in keep]
+    fig = plt.figure(figsize=(W, 3.9)); ax = fig.add_axes([0.16, 0.14, 0.62, 0.80]); cax = fig.add_axes([0.82, 0.14, 0.035, 0.80])
+    from matplotlib.colors import LinearSegmentedColormap, LogNorm
+    cm = LinearSegmentedColormap.from_list("g", ["#FFFFFF", f("quantum"), c("quantum")])
+    im = ax.imshow(np.maximum(M, 1e-6), cmap=cm, norm=LogNorm(1e-4, M.max()), origin="lower",
+                   extent=[fk[0] - 0.5, fk[-1] + 0.5, fk[0] - 0.5, fk[-1] + 0.5])
+    ax.add_patch(plt.Rectangle((-3.5, -3.5), 7, 7, fill=False, ec=c("quantum"), lw=1.4, ls="--"))
+    ax.text(0, 3.75, "allowed by three re-uploads", ha="center", va="bottom", color=INK, fontsize=9.5,
+            bbox=dict(fc="white", ec="none", pad=0.3))
+    ax.set_xticks(range(-6, 7, 2)); ax.set_yticks(range(-6, 7, 2))
+    ax.set_xlabel("Frequency in feature $x_1$"); ax.set_ylabel("Frequency in feature $x_2$")
+    cb = fig.colorbar(im, cax=cax); cb.set_label("Size of Fourier coefficient")
+    save(fig, OUT, "Fig_5_5_fourier_spectrum")
+
+def fig_5_6():
+    B = E["bandwidth"]; cs = [float(k) for k in B]
+    fig = plt.figure(figsize=(W, 3.9))
+    a1 = fig.add_axes([0.15, 0.58, 0.82, 0.36]); a2 = fig.add_axes([0.15, 0.12, 0.82, 0.32])
+    a1.semilogx(cs, [B[k]["test_acc"] for k in B], "-o", color=c("quantum"), ms=4, lw=1.6, label="test")
+    a1.semilogx(cs, [B[k]["train_acc"] for k in B], "--s", color=c("quantum"), ms=4, lw=1.2, mfc="white", label="training")
+    a1.set_ylim(0.45, 1.0); a1.set_ylabel("Accuracy")
+    a1.text(0, 1.04, "(a) Accuracy of the quantum kernel machine", transform=a1.transAxes, ha="left", va="bottom")
+    a1.legend(loc="lower left", frameon=False, ncol=2)
+    a2.semilogx(cs, [B[k]["mean_offdiag"] for k in B], "-o", color=GREY, ms=4, lw=1.6)
+    a2.set_ylim(0, 1.05); a2.set_ylabel("Mean kernel value"); a2.set_xlabel("Bandwidth factor c applied to the features")
+    a2.text(0, 1.04, "(b) Average similarity between different training points", transform=a2.transAxes, ha="left", va="bottom")
+    for a in (a1, a2):
+        a.set_xticks(cs); a.set_xticklabels([f"{v:g}" for v in cs]); a.minorticks_off()
+        a.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); a.set_axisbelow(True)
+        a.spines["top"].set_visible(False); a.spines["right"].set_visible(False)
+    save(fig, OUT, "Fig_5_6_kernel_bandwidth")
+
 if __name__ == "__main__":
-    for fn in (fig_5_1, fig_5_2, fig_5_3, fig_5_4):
+    for fn in (fig_5_1, fig_5_2, fig_5_3, fig_5_4, fig_5_5, fig_5_6):
         fn()
     print("done")
