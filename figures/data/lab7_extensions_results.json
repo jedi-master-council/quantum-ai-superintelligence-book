@@ -1,0 +1,160 @@
+{
+ "calibration": {
+  "anharmonicity_MHz": -300,
+  "drift_MHz": 2,
+  "rows": [
+   {
+    "duration_ns": 4,
+    "gaussian_error": 0.19182015282615483,
+    "gaussian_leak": 0.11182826915076838,
+    "drag_error": 0.03424870101913291,
+    "drag_leak": 0.030748861684048556,
+    "learned_error": 0.015034016414979923,
+    "learned_leak": 0.012832315823561924,
+    "evaluations": 218,
+    "learned_params": [
+     0.8774628246850247,
+     0.598459334902182,
+     -0.3615169025588596
+    ]
+   },
+   {
+    "duration_ns": 6,
+    "gaussian_error": 0.045582470307676926,
+    "gaussian_leak": 0.010557384102803269,
+    "drag_error": 0.002740288366525845,
+    "drag_leak": 0.0022171235377010934,
+    "learned_error": 0.00014168738333208974,
+    "learned_leak": 0.00014058053233334533,
+    "evaluations": 225,
+    "learned_params": [
+     0.907226557568644,
+     0.6869058783099582,
+     -0.23326454529755603
+    ]
+   },
+   {
+    "duration_ns": 8,
+    "gaussian_error": 0.023435735596610052,
+    "gaussian_leak": 0.0001592606095530691,
+    "drag_error": 0.0003670593541613698,
+    "drag_leak": 8.155379945029573e-05,
+    "learned_error": 1.647449762165465e-07,
+    "learned_leak": 1.6466607521969934e-07,
+    "evaluations": 236,
+    "learned_params": [
+     0.9750157937570649,
+     0.5173838513060998,
+     -0.08039463593297341
+    ]
+   },
+   {
+    "duration_ns": 10,
+    "gaussian_error": 0.017262419542807383,
+    "gaussian_leak": 0.00023775608492349054,
+    "drag_error": 0.0004683355126942068,
+    "drag_leak": 5.6237225272148805e-05,
+    "learned_error": 9.092262936993833e-07,
+    "learned_leak": 9.091990136322892e-07,
+    "evaluations": 253,
+    "learned_params": [
+     0.9779119543107817,
+     0.5645412521527856,
+     -0.05776155332554843
+    ]
+   },
+   {
+    "duration_ns": 12,
+    "gaussian_error": 0.013776422355780693,
+    "gaussian_leak": 0.00010717218191891309,
+    "drag_error": 0.0006497454012560633,
+    "drag_leak": 2.5446858154754004e-05,
+    "learned_error": 3.242461643626626e-08,
+    "learned_leak": 3.2424553819687674e-08,
+    "evaluations": 214,
+    "learned_params": [
+     0.9872887303955541,
+     0.5320698197467102,
+     -0.03156368214060622
+    ]
+   },
+   {
+    "duration_ns": 16,
+    "gaussian_error": 0.010630224025634849,
+    "gaussian_leak": 3.818453111592568e-05,
+    "drag_error": 0.0011788753980885858,
+    "drag_leak": 8.965508634162234e-06,
+    "learned_error": 1.2351227818285793e-09,
+    "learned_leak": 1.2351211164940423e-09,
+    "evaluations": 223,
+    "learned_params": [
+     0.9923948479863338,
+     0.5392534272259151,
+     -0.013051016226917813
+    ]
+   },
+   {
+    "duration_ns": 20,
+    "gaussian_error": 0.009594131480322177,
+    "gaussian_leak": 1.4164650718351268e-05,
+    "drag_error": 0.0018591166233895562,
+    "drag_leak": 3.4876779813064474e-06,
+    "learned_error": 1.1659551102383148e-10,
+    "learned_leak": 1.1659451182310931e-10,
+    "evaluations": 200,
+    "learned_params": [
+     0.9952775677616388,
+     0.5338657392910939,
+     -0.00355937582995565
+    ]
+   },
+   {
+    "duration_ns": 24,
+    "gaussian_error": 0.009481318696741958,
+    "gaussian_leak": 5.957821832436316e-06,
+    "drag_error": 0.002683456675523721,
+    "drag_leak": 1.5721167062610064e-06,
+    "learned_error": 2.4302782009044677e-13,
+    "learned_leak": 2.4280577548552174e-13,
+    "evaluations": 348,
+    "learned_params": [
+     0.9967411654993759,
+     0.5324720388682345,
+     0.001408495937372785
+    ]
+   }
+  ]
+ },
+ "compilation_search": {
+  "QFT and inverse, 6 qubits": {
+   "default_cz": 90,
+   "best_cz": 90,
+   "worst_cz": 106,
+   "median_cz": 92.0,
+   "default_success": 0.71725,
+   "best_success": 0.71725,
+   "worst_success": 0.68275,
+   "seeds_at_best": 35
+  },
+  "Bernstein-Vazirani, 8 + 1 qubits": {
+   "default_cz": 13,
+   "best_cz": 13,
+   "worst_cz": 26,
+   "median_cz": 23.0,
+   "default_success": 0.918375,
+   "best_success": 0.918375,
+   "worst_success": 0.878125,
+   "seeds_at_best": 16
+  },
+  "random mirror circuit, 8 qubits": {
+   "default_cz": 86,
+   "best_cz": 86,
+   "worst_cz": 98,
+   "median_cz": 86.0,
+   "default_success": 0.667125,
+   "best_success": 0.667125,
+   "worst_success": 0.641,
+   "seeds_at_best": 83
+  }
+ }
+}
