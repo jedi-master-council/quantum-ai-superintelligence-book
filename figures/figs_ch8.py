@@ -78,7 +78,47 @@ def fig_8_3():
     ax.set_xlabel("Year (bar: 10% to 90%; dashed green: with quantum relief)")
     save(fig, OUT, "Fig_8_3_roadmap_dates")
 
+E8 = json.load(open("data/roadmap_extensions_results.json"))
+
+def fig_8_4():
+    S = E8["sensitivity"]["rows"]
+    labels = ["M1 stage halved / +50%", "M2 stage halved / +50%", "M3 stage halved / +50%", "M4 stage halved / +50%",
+              "Spread of stages\nnarrower / wider", "Quantum computer\n2028-32 / 2040-50", "Quantum relief\nnone / 50%",
+              "Relief 50% and\nmachine by 2028-32"]
+    quantum = [False, False, False, False, False, True, True, True]
+    fig = plt.figure(figsize=(W, 3.9)); ax = fig.add_axes([0.42, 0.13, 0.55, 0.84])
+    y = np.arange(len(S))[::-1]
+    for yi, r, q in zip(y, S, quantum):
+        for v in (r["low"], r["high"]):
+            if abs(v) < 1e-9: continue
+            ax.barh(yi, v, 0.55, color=f("quantum") if q else f("asi"), ec=c("quantum") if q else c("asi"), lw=1.0)
+            ax.text(v + (0.12 if v > 0 else -0.12), yi, f"{v:+.1f}", va="center", ha="left" if v > 0 else "right", fontsize=9.5)
+    ax.axvline(0, color=INK, lw=0.8)
+    ax.set_yticks(y); ax.set_yticklabels(labels); ax.tick_params(axis="y", length=0)
+    ax.set_xlim(-5.6, 3.6); ax.set_xlabel("Change in median ASI date (years)")
+    ax.xaxis.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True)
+    for sp in ("top", "right", "left"): ax.spines[sp].set_visible(False)
+    save(fig, OUT, "Fig_8_4_sensitivity")
+
+def fig_8_5():
+    Eg = E8["energy"]; e = np.array(Eg["efficiency"])
+    fig = plt.figure(figsize=(W, 3.9)); ax = fig.add_axes([0.15, 0.13, 0.80, 0.62])
+    ax.axhspan(1e9, 5e9, color=f("asi"), zorder=0)
+    ax.text(1.6e13, 1.5e9, "1 to 5 GW", va="center", fontsize=9.5, color=INK, bbox=dict(fc=f("asi"), ec="none", pad=0.2))
+    sty = {"2e+26": ":", "2e+27": (0, (1.5, 1.5)), "2e+28": "--", "2e+29": "-"}
+    names = {"2e+26": "$2\\times10^{26}$", "2e+27": "$2\\times10^{27}$", "2e+28": "$2\\times10^{28}$", "2e+29": "$2\\times10^{29}$"}
+    for k, ls in sty.items():
+        ax.loglog(e, Eg["power_w"][k], ls=ls, color=c("today"), lw=1.6, label=names[k] + " operations")
+    h = Eg["h100_ops_per_joule"]; ax.axvline(h, color=c("quantum"), lw=1.0, ls=(0, (4, 2)))
+    ax.text(h * 1.08, 3e11, "H100 at peak\n(board power)", va="center", fontsize=9.5, color=INK)
+    ax.set_xlim(1e11, 1e14); ax.set_ylim(1e6, 1e12)
+    ax.set_xlabel("Hardware efficiency (operations per joule)"); ax.set_ylabel("Electrical power (W)")
+    ax.grid(True, which="major", color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True); ax.minorticks_off()
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=2, frameon=False)
+    save(fig, OUT, "Fig_8_5_training_power")
+
 if __name__ == "__main__":
-    for fn in (fig_8_1, fig_8_2, fig_8_3):
+    for fn in (fig_8_1, fig_8_2, fig_8_3, fig_8_4, fig_8_5):
         fn()
     print("done")
