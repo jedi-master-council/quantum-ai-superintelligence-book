@@ -58,7 +58,45 @@ def fig_6_3():
     box(ax, 1.30, 0.02, 1.90, 0.40, "useful advantage needs both", k="missing", ls="--")
     save(fig, OUT, "Fig_6_3_trainability_tradeoff")
 
+E = json.load(open("data/lab6_extensions_results.json"))
+
+def _tidy(ax):
+    ax.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True)
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+
+def fig_6_4():
+    V = E["noise_plateau"]["variance"]
+    fig = plt.figure(figsize=(W, 3.9)); ax = fig.add_axes([0.15, 0.13, 0.82, 0.60])
+    sty = {"0.0": ("-", "o", "no noise"), "0.01": ((0, (5, 2)), "s", "p = 0.01 per qubit per layer"), "0.03": ((0, (1.5, 1.5)), "^", "p = 0.03 per qubit per layer")}
+    for k, (ls, mk, lab) in sty.items():
+        d = [int(x) for x in V[k]]; ax.semilogy(d, list(V[k].values()), ls=ls, marker=mk, color=c("quantum"), ms=4, lw=1.6, mfc="white", label=lab)
+    ax.set_xlabel("Circuit depth (layers)"); ax.set_ylabel("Variance of the gradient"); ax.set_xticks([1, 2, 4, 8, 12, 16, 20])
+    ax.minorticks_off(); _tidy(ax)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=1, frameon=False)
+    save(fig, OUT, "Fig_6_4_noise_plateau")
+
+def fig_6_5():
+    A = E["amplitude_encoding"]; q = [a["qubits"] for a in A]
+    fig = plt.figure(figsize=(W, 3.9)); ax = fig.add_axes([0.15, 0.13, 0.82, 0.60])
+    ax.semilogy(q, [a["cx"] for a in A], "-o", color=c("quantum"), ms=4, lw=1.7, label="amplitude encoding: CX gates")
+    ax.semilogy(q, [a["amplitudes"] for a in A], ":", color=GREY, lw=1.2, label="number of values loaded, $2^n$")
+    ax.semilogy(q, q, "--s", color=GREY, ms=4, lw=1.2, mfc="white", label="angle encoding of n values: rotations")
+    ax.set_xlabel("Qubits, n"); ax.set_ylabel("Count"); ax.set_xticks(q); ax.minorticks_off(); _tidy(ax)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=1, frameon=False)
+    save(fig, OUT, "Fig_6_5_loading_cost")
+
+def fig_6_6():
+    Z = E["zne"]["results"]; q = [z["qubits"] for z in Z]
+    fig = plt.figure(figsize=(W, 3.6)); ax = fig.add_axes([0.15, 0.14, 0.82, 0.66])
+    ax.plot(q, [1] * len(q), ":", color=GREY, lw=1.2, label="ideal")
+    ax.plot(q, [z["extrapolated"] for z in Z], "-o", color=c("quantum"), ms=4, lw=1.7, label="zero-noise extrapolation")
+    ax.plot(q, [z["raw"] for z in Z], "--s", color=c("quantum"), ms=4, lw=1.2, mfc="white", label="unmitigated")
+    ax.plot(q, [z["folded5"] for z in Z], ls=(0, (1.5, 1.5)), marker="^", color=GREY, ms=4, lw=1.2, mfc="white", label="noise scaled by 5")
+    ax.set_ylim(0.68, 1.02); ax.set_xticks(q); ax.set_xlabel("GHZ qubits"); ax.set_ylabel("Probability of a correct outcome"); _tidy(ax)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=2, frameon=False)
+    save(fig, OUT, "Fig_6_6_zne")
+
 if __name__ == "__main__":
-    for fn in (fig_6_1, fig_6_2, fig_6_3):
+    for fn in (fig_6_1, fig_6_2, fig_6_3, fig_6_4, fig_6_5, fig_6_6):
         fn()
     print("done")
