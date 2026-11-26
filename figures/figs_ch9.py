@@ -75,7 +75,38 @@ def fig_9_4():
     ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
     save(fig, OUT, "Fig_9_4_returns")
 
+E9 = json.load(open("data/singularity_extensions_results.json"))
+
+def fig_9_5():
+    C = E9["cap"]; keys = ["1.5x", "2x", "3x", "10x", "20x (default)", "100x"]
+    x = [1.5, 2, 3, 10, 20, 100]
+    fig = plt.figure(figsize=(W, 3.6)); ax = fig.add_axes([0.15, 0.15, 0.70, 0.63]); ax2 = ax.twinx()
+    ax.semilogx(x, [C[k]["median"] for k in keys], "-o", color=c("sing"), ms=4, lw=1.8, label="median transition (left)")
+    ax.semilogx(x, [C[k]["p10"] for k in keys], "--s", color=c("sing"), ms=4, lw=1.3, mfc="white", label="10% point (left)")
+    ax2.semilogx(x, [C[k]["p_by_2045"] for k in keys], ":^", color=c("asi"), ms=4, lw=1.6, mfc="white", label="probability by 2045 (right)")
+    ax.set_xticks(x); ax.set_xticklabels(["1.5", "2", "3", "10", "20", "100"]); ax.minorticks_off(); ax2.minorticks_off()
+    ax.set_xlabel("Largest possible growth of capability in one year (factor)")
+    ax.set_ylabel("Year"); ax.set_ylim(2035, 2065); ax2.set_ylim(0, 0.3); ax2.set_ylabel("Probability")
+    ax.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True)
+    for a in (ax, ax2): a.spines["top"].set_visible(False)
+    h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
+    fig.legend(h1 + h2, l1 + l2, loc="upper left", bbox_to_anchor=(0.02, 1.0), ncol=2, frameon=False)
+    save(fig, OUT, "Fig_9_5_physical_cap")
+
+def fig_9_6():
+    V = E9["value_of_information"]; yrs = V["years"]; Rr = V["results"]
+    fig = plt.figure(figsize=(W, 4.2)); ax = fig.add_axes([0.14, 0.12, 0.83, 0.56])
+    ax.plot(yrs, Rr["prior"]["cdf"], color=GREY, lw=2.2, label="prior, before measurement")
+    for k, ls in (("measured 0.8", (0, (5, 2))), ("measured 1.0", "-"), ("measured 1.2", (0, (1.5, 1.5)))):
+        ax.plot(yrs, Rr[k]["cdf"], color=c("sing"), ls=ls, lw=1.7, label="measured α = " + k.split()[-1])
+    ax.axvline(2045, color=GREY, lw=0.7); ax.text(2046, 0.04, "2045", color=GREY)
+    ax.set_xlim(2025, 2150); ax.set_ylim(0, 1); ax.set_xlabel("Year"); ax.set_ylabel("Probability of transition by year")
+    ax.grid(True, color="#C5CBD2", lw=0.5, ls=(0, (1, 2))); ax.set_axisbelow(True)
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.02, 1.0), ncol=1, frameon=False)
+    save(fig, OUT, "Fig_9_6_value_of_information")
+
 if __name__ == "__main__":
-    for fn in (fig_9_1, fig_9_2, fig_9_3, fig_9_4):
+    for fn in (fig_9_1, fig_9_2, fig_9_3, fig_9_4, fig_9_5, fig_9_6):
         fn()
     print("done")
